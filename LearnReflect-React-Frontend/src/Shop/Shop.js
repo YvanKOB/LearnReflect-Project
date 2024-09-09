@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import ShoppingCart from "./ShoppingCart";
-import LR from "./img/LRe.png";
+import LR from "./images/LRe.png";
 import { Link } from "react-router-dom";
-import women from "./img/shopwomen.avif";
-import men from "./img/working.webp";
-import cart2 from "./img/cart2.png";
-import search from "./img/search.png";
-import "../../css/shop.css";
+import women from "./images/shopwomen.avif";
+import men from "./images/working.webp";
+import cart2 from "./images/cart2.png";
+import search from "./images/search.png";
+import '../css/shop.css'
 
 function ShopPage() {
   const [showInput, setShowInput] = useState(false);

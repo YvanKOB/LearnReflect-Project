@@ -71,18 +71,24 @@ db.connect((err) => {
     console.log('Connected to MySQL database');
 });
 
+
+
 app.post('/signup', (req, res) => {
-    const sql = "INSERT INTO login (`name`,`email`,`password`) VALUES (?)";
-    const values = [
-        req.body.name,
-        req.body.email,
-        req.body.password
-    ];
-    db.query(sql, [values], (err, data) => {
-        if (err) return res.json(err);
-        return res.json(data);
-    });
+  const sql = "INSERT INTO login (name, email, password, role) VALUES (?)";
+  const values = [
+      req.body.name,
+      req.body.email,
+      req.body.password,
+      'user'
+  ];
+  db.query(sql, [values], (err, data) => {
+      if (err) return res.json(err);
+      return res.json(data);
+  });
 });
+
+
+
 
 app.post('/login', (req, res) => {
     const { name, email, password } = req.body;

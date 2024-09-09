@@ -1,11 +1,10 @@
-<script src="http://localhost:8097"></script>
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../css/Homepage.css'; 
-import DropdownMenu from '../../Components/Design/DropDownController';
-import Bcomponent from '../../Components/Design/BComponent';
-import LComponent from '../../Components/Design/LogoComponent';
-import { useAuth } from '../../Components/Authanciation/AuthProvider';
+import '../css/Homepage.css'
+import DropdownMenu from '../Components/DropDownController';
+import Bcomponent from '../Components/BComponent';
+import LComponent from '../Components/LogoComponent';
+import { useAuth } from '../Components/Authanciation/AuthProvider';
 
 
 

@@ -39,7 +39,7 @@
           }
           var { clientSecret } = await response.json();
           setClientSecret(clientSecret);
-        }) .catch((error) => {
+        }).catch((error) => {
           console.error("Error fetching client secret:", error);
         });
     }, []);
@@ -48,7 +48,7 @@
 
 
     return (
-      <>
+       <>
         {clientSecret && stripePromise && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
             <CheckoutForm totalAmount={totalAmount} />

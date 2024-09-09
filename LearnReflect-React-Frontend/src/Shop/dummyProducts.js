@@ -1,12 +1,12 @@
-import img1 from './img/hoodie1.jpg';
-import img3 from './img/palglg Men.jpg';
-import img2 from './img/Wake Up.jpg';
+import img1 from './images/hoodie2.jpg';
+import img3 from './images/palglg Men.jpg';
+import img2 from './images/Wake Up6.jpg';
 const dummyProducts = [
     {
       id: 1,
       title: 'Hoodie1',
       description: 'Description of Product 1',
-      imageUrl: img1, // Add imageUrl property
+      imageUrl: img1,
       Count: 1,
       Price: 198,
     },
@@ -14,7 +14,7 @@ const dummyProducts = [
       id: 2,
       title: 'Wake up',
       description: 'Description of Product 2',
-      imageUrl: img2, // Add imageUrl property
+      imageUrl: img2, 
       Count: 1,
       Price: 368,
     },
@@ -22,7 +22,7 @@ const dummyProducts = [
       id: 3,
       title: 'Palglg men',
       description: 'Description of Product 3',
-      imageUrl: img3, // Add imageUrl property
+      imageUrl: img3, 
       Count: 1,
       Price: 98,
     },

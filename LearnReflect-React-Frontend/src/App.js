@@ -4,23 +4,23 @@ import CountDown from "./PreRelease/CountDown";
 import HomePage from "./LearnReflect Discipline/HomePage";
 import LoginPage from "./User/LoginPage";
 import RegisterPage from './User/RegisterPage'
-import AboutPage from './LearnReflect Discipline/AboutPage.js'
+import AboutPage from './LearnReflect Discipline/AboutPage.js';
 import Futures from "./User/FuturesPage";
 import AuthProvider from "./Components/Authanciation/AuthProvider";
-import Dashboard from './User/Dashboard.js'
-import PrivateRoute from 'src/Components/Authanciation/PrivateRoute.js'
-import PrivateRouteFuture from 'src/Components/Authanciation/PrivateRouteFuture.js'
-import FutureZero from './LearnReflect Discipline/FutureZero.js'
-import LandingPage from 'src/MainSite/LandingPage.js'
-import ShopPage from "./Pages/Shop/Shop";
-import ProductCard from "./Pages/Shop/ProductCard";
-import Contact from "./Pages/Contact/Contact";
-import Payment from "./Pages/Shop/PaymentStripe/Payment";
-import Completion from './Shop/PaymentStripe/Completion.js'
-import AIUpscalePage from './LearnReflectAI/AIUpscalePage.js'
-import AdminRoute from './AdminPanel/AdminRoute.js'
-import Admin from './AdminPanel/Admin.js'
-import Timer from "./PreRelease/TimerComponent";
+import Dashboard from './User/Dashboard.js';
+import PrivateRoute from './Components/Authanciation/PrivateRoute.js';
+import PrivateRouteFuture from './Components/Authanciation/PrivateRouteFuture.js';
+import FutureZero from './LearnReflect Discipline/FutureZero.js';
+import LandingPage from './MainSite/LandingPage.js';
+import ShopPage from "./Shop/Shop.js";
+import ProductCard from "./Shop/ProductCard.js";
+import Contact from "./Contact/Contact.js";
+import Payment from "./Shop/PaymentStripe/Payment.js";
+import Completion from './Shop/PaymentStripe/Completion.js';
+import AIUpscalePage from './AI-LearnReflect/AIUpscalePage.js';
+import Admin from './AdminPanel/Admin.js';
+import AdminRoute from './Components/Authanciation/AdminRoute.js'
+import Timer from "./Components/TimerComponent.js";
 function App() {
   return (
     <BrowserRouter>

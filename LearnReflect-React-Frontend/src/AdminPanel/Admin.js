@@ -1,6 +1,6 @@
 import React from "react";
 
-function Admin() {
+function AdminRoute() {
   return (
     <div className="admin-panel">
       {/*Admin functionalities goes here*/}
@@ -8,4 +8,4 @@ function Admin() {
     </div>
   );
 }
-export default Admin;
+export default AdminRoute;

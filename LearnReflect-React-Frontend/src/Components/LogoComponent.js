@@ -1,7 +1,7 @@
 import React from 'react';
-import tiktok from './img/tiktok.png';
-import Instagram from './img/insta.png';
-import X from './img/xx.png';
+import tiktok from '../images/tiktok.png';
+import Instagram from '../images/insta.png';
+import X from '../images/xx.png';
 
 function LComponent() {
   return (
@@ -13,7 +13,7 @@ function LComponent() {
       </div>
       <div className="social-icon-container">
         <a href='https://www.instagram.com/learnreflects'>
-          <img src={Instagram} alt="Instagram Logo" className="social-icon" />
+          <img alt="Instagram" src={Instagram}  className="social-icon" />
         </a>
       </div>
       <div className="social-icon-container">

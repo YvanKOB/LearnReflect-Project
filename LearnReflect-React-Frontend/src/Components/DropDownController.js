@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import MenuIcon from './img/menu.png'
+import MenuIcon from '../images/LearnReflect.jpeg'
 import { Link } from 'react-router-dom'; 
-import { useAuth } from '../Authanciation/AuthProvider';
-import PrivateRouteMenu from '../Authanciation/PrivateRouteMenu';
+import { useAuth } from '../Components/Authanciation/AuthProvider';
+import PrivateRouteMenu from '../Components/Authanciation/PrivateRoute';
 function DropdownMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+const { logout } = useAuth();
 
-const { isAuthenticated   , logout } = useAuth();
- 
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
+};
   return (
     <div className='dropdown'>
       <img src={MenuIcon} alt="MenuIcon Logo" className='menu-icon' onClick={toggleMenu} />

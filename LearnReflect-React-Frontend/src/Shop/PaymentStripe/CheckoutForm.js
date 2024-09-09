@@ -2,7 +2,7 @@ import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
-import '../PaymentSolution.css';
+import '../../css/PaymentSolution.css';
 export default function CheckoutForm({ totalAmount }) {
   console.log('TotalAmount',totalAmount);
   const stripe = useStripe();

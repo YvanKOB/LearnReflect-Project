@@ -1,7 +1,7 @@
 import React from 'react';
-import DropdownMenu from '../../Components/Design/DropDownController';
-import Bcomponent from '../../Components/Design/BComponent';
-import LComponent from '../../Components/Design/LogoComponent';
+import DropdownMenu from '../Components/DropDownController';
+import Bcomponent from '../Components/BComponent';
+import LComponent from '../Components/LogoComponent';
 function FutureZero(){
 return(
     <div>

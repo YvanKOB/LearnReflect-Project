@@ -1,7 +1,7 @@
 import React from 'react';
-import DropdownMenu from '../DropDownController';
-import Bcomponent from '../BComponent';
-import LComponent from '../LogoComponent';
+import DropdownMenu from '../Components/DropDownController';
+import Bcomponent from '../Components/BComponent';
+import LComponent from '../Components/LogoComponent';
 import '../css/Homepage.css'
 function HomePage () {   
   return (

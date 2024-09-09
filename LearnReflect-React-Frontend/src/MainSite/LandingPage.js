@@ -1,18 +1,18 @@
 // LandingPage.js
 import { Link } from 'react-router-dom';
 import React from 'react';
-import '../../css/Landing.css'
-import background from './img/black2.png';
-import Pageimg from './img/lion.jpg';
-import trainer from './img/4.jpg';
-import black from './img/Black.png';
-import girl from './img/girl.jpg';
+import '../css/Landing.css'
+import background from './images/black2.png';
+import PageImg from './images/lion.jpg';
+import trainer from './images/4.jpg';
+import black from './images/Black.png';
+
 function LandingPage() {
   return (
     <div className='banner'>
-    <img className='TrainerImg' src={trainer}/>
-    <img className='girlimg' src={girl}/>
-    <img className='Background' src={background}/>
+    <img alt="TrainerImage" className='TrainerImg' src={trainer}/>
+    <img alt="BackgroundImage" className='Background' src={background}/>
+    <img alt="LionImage" className='LionImg' src={PageImg}/>
     <div className='navbar'>
     <ul>
     <li><Link to='/Homepage'>LearnReflect</Link></li>
@@ -29,7 +29,7 @@ function LandingPage() {
     <p>Guide</p>
     </div>
     <div className='banner2'>
-    <img className='LearnReflectImg' src={black}/>
+    <img alt="LearnReflectImage" className='LearnReflectImg' src={black}/>
     </div>
     </div>
   );

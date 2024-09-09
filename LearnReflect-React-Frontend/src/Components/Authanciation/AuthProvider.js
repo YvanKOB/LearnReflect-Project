@@ -1,6 +1,6 @@
 //Authprovider
-import React, { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -10,37 +10,34 @@ const AuthProvider = ({ children }) => {
   const isAuthenticated = !!user;
   const navigate = useNavigate();
 
-
-
-  const loginAction = async (data) => {
+  const loginAction = async data => {
     try {
-      if(data && data.username){
-        setUser(data.username); 
-        setToken(data.token); 
-        localStorage.setItem("site", data.token); 
-        navigate('/Dashboard'); 
-      }else {
-        
+      if (data && data.username) {
+        setUser(data.username);
+        setToken(data.token);
+        localStorage.setItem("site", data.token);
+        navigate("/Dashboard");
+      } else {
       }
     } catch (error) {
-      console.error('Error:', error); 
+      console.error("Error:", error);
     }
   };
 
-
-   const logout = () => {
-    setUser(null); 
+  const logout = () => {
+    setUser(null);
     setToken("");
-    localStorage.removeItem("site"); 
-    navigate('/LR'); 
-    };
+    localStorage.removeItem("site");
+    navigate("/LR");
+  };
 
-
-     return (
-    <AuthContext.Provider value={{ isAuthenticated, token, user, loginAction, logout }}>
-      {children} 
+  return (
+    <AuthContext.Provider
+      value={{ isAuthenticated, token, user, loginAction, logout }}
+    >
+      {children}
     </AuthContext.Provider>
-     );
+  );
 };
 
 export default AuthProvider;
