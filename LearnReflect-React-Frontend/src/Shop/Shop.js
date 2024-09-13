@@ -7,7 +7,7 @@ import women from "./images/shopwomen.avif";
 import men from "./images/working.webp";
 import cart2 from "./images/cart2.png";
 import search from "./images/search.png";
-import '../css/shop.css'
+import "../css/shop.css";
 
 function ShopPage() {
   const [showInput, setShowInput] = useState(false);
@@ -19,26 +19,25 @@ function ShopPage() {
   useEffect(() => {
     setAnimate(true);
   }, []);
-
-  const addProductToCart = (product) => {
-    const existingProduct = cartItems.find((item) => item.id === product.id);
+  const addProductToCart = product => {
+    const existingProduct = cartItems.find(item => item.id === product.id);
     if (existingProduct) {
-      setCounts((prevCounts) => ({
+      setCounts(prevCounts => ({
         ...prevCounts,
         [product.id]: (prevCounts[product.id] || 1) + 1
       }));
     } else {
       setCartItems([...cartItems, product]);
-      setCounts((prevCounts) => ({
+      setCounts(prevCounts => ({
         ...prevCounts,
         [product.id]: 1
       }));
     }
   };
 
-  const removeCartItem = (product) => {
-    setCartItems(cartItems.filter((item) => item.id !== product.id));
-    setCounts((prevCounts) => {
+  const removeCartItem = product => {
+    setCartItems(cartItems.filter(item => item.id !== product.id));
+    setCounts(prevCounts => {
       const newCounts = { ...prevCounts };
       delete newCounts[product.id];
       return newCounts;
@@ -48,8 +47,8 @@ function ShopPage() {
   return (
     <div className={`shop-page ${animate ? "animate" : ""}`}>
       <div className="LabelContainer">
-        <Link to="/LR">
-          <img className="LR-Logo " src={LR} />
+        <Link to="/">
+          <img alt="" className="LR-Logo " src={LR} />
         </Link>
         <label>
           <Link to="/ShopPage">Home</Link>
@@ -57,18 +56,17 @@ function ShopPage() {
         <div className="dropdownShop">
           <label>Products</label>
           <div className="dropdownShop-content">
-            <a>option 1</a>
-            <a>option 2</a>
-            <a>option 3</a>
+            <a href="Option1">option 1</a>
+            <a href="Option2">option 2</a>
+            <a href="Option3">option 3</a>
           </div>
         </div>
         <div className="dropdownShop">
           <label>Sales</label>
           <div className="dropdownShop-content">
-            <a>Option A</a>
-            
-            <a>Option B</a>
-            <a>Option C</a>
+            <a href="Option1">option 1</a>
+            <a href="Option2">option 2</a>
+            <a href="Option3">option 3</a>
           </div>
         </div>
         <label>Contact</label>
@@ -83,34 +81,35 @@ function ShopPage() {
             onMouseLeave={() => setShowInput(true)}
           />
           <img
+            alt="OnMouseEnter"
             onMouseEnter={() => setShowInput(true)}
             onMouseLeave={() => setShowInput(false)}
             src={search}
           />
           <img
+            alt="OnMouseEnter"
             className="cartimg"
             onClick={() => setOpenCart(!cart)}
             src={cart2}
           />
-          {cart && (
+          {cart &&
             <ShoppingCart
               setOpenCart={setOpenCart}
               items={cartItems}
               removeItem={removeCartItem}
               counts={counts}
               updateCounts={setCounts}
-            />
-          )}
+            />}
         </div>
       </div>
       <div>
-        <img className="womenImg" src={women} />
-        <img className="menImg" src={men} />
+        <img alt="WomenImg" className="womenImg" src={women} />
+        <img alt="MenImg" className="menImg" src={men} />
       </div>
-      <div className="wall-top"></div>
+      <div className="wall-top" />
       <Product addProduct={addProductToCart} />
-      <div className="wall-bottom"></div>
-      <div className="bottom-container"></div>
+      <div className="wall-bottom" />
+      <div className="bottom-container" />
     </div>
   );
 }

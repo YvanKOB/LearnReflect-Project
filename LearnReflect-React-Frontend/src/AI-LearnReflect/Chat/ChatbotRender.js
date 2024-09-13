@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "../../css/Chatgpt.css";
+import "../../css/ChatGpt.css";
 
 function Chatbot() {
     const [input, setInput] = useState("");
@@ -76,9 +76,8 @@ function Chatbot() {
                 <h1>Chat with AI Personal Trainer</h1>
                 <div className='userinputcontainer'>
                 <div>
-                    <p className='Chatbot-P'>AIresponse</p> 
-                    <p className='User-P'>{UserMessage}</p>
-
+                    <p className='Chatbot-P'>{AIresponse}</p> 
+                    <p className='User-P'>{input}</p>
                 </div>
                     <input placeholder='Ask AI' className='ChatBox' type='text' value={input} onChange={(e) => setInput(e.target.value)}/>
                 </div>
@@ -95,4 +94,4 @@ function Chatbot() {
     );
 }
 
-export default Chatbot; 
+export default Chatbot;

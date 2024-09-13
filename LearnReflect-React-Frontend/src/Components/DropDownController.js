@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import MenuIcon from '../images/LearnReflect.jpeg'
 import { Link } from 'react-router-dom'; 
-import { useAuth } from '../Components/Authanciation/AuthProvider';
-import PrivateRouteMenu from '../Components/Authanciation/PrivateRoute';
+import { useAuth } from './Authanciation/AuthProvider';
+import PrivateRouteMenu from './Authanciation/PrivateRoute';
 function DropdownMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
 const { logout } = useAuth();

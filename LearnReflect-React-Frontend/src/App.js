@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CountDown from "./PreRelease/CountDown";
 import HomePage from "./LearnReflect Discipline/HomePage";
 import LoginPage from "./User/LoginPage";
-import RegisterPage from './User/RegisterPage'
 import AboutPage from './LearnReflect Discipline/AboutPage.js';
 import Futures from "./User/FuturesPage";
 import AuthProvider from "./Components/Authanciation/AuthProvider";
@@ -21,21 +20,24 @@ import AIUpscalePage from './AI-LearnReflect/AIUpscalePage.js';
 import Admin from './AdminPanel/Admin.js';
 import AdminRoute from './Components/Authanciation/AdminRoute.js'
 import Timer from "./Components/TimerComponent.js";
+import Inspire from "./Inspire/Inspire.js";
+import RegistrationForm from "./User/UserRegistration.js";
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
         <AuthProvider>
           <Routes>
-            <Route path="/LR" element={<LandingPage />} />
+           <Route path="/" element={<RegistrationForm/>}/>
+            <Route path="/LandingPage" element={<LandingPage />} />
             <Route path="/Timer" element={<Timer />} />
             <Route path="/CountDown" element={<CountDown />} />
             <Route path="/Homepage" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/Register" element={<RegisterPage />} />
             <Route path="/AboutPage" element={<AboutPage />} />
-            <Route path="/FutureZero" element={<FutureZero />} />
             <Route path="/AIUpscalePage" element={<AIUpscalePage />} />
+            <Route path="/FutureZero" element={<FutureZero />} />
+            <Route path="/Inspire" element={<Inspire />} />
             <Route path="/Futures" element={<PrivateRouteFuture><Futures /></PrivateRouteFuture>}/>
             <Route path="/ShopPage" element={<ShopPage />} />
             <Route path="/ProductCard" element={<ProductCard />} />

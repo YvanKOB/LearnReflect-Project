@@ -4,13 +4,13 @@ import { useStripe, useElements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 import '../../css/PaymentSolution.css';
 export default function CheckoutForm({ totalAmount }) {
-  console.log('TotalAmount',totalAmount);
+ console.log('TotalAmount',totalAmount);
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const navigate = useNavigate();
- const goto = () => {
+  const goto = () => {
   navigate('/ShopPage');
  }
   const handleSubmit = async (e) => {
@@ -52,6 +52,7 @@ export default function CheckoutForm({ totalAmount }) {
     </div>
     </div>
   );
+  
 }
 
   

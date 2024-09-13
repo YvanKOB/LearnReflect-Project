@@ -1,13 +1,19 @@
-function validation(values){
-let errors = {}
+export const validateEmail = email => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(String(email).toLowerCase());
+};
 
-if(values.email === ""){
-errors.email = "Name should not be empty"
-}
+export const ValidatePassword = password => {
+  const IncludesUppercase = /[A-Z]/.test(password);
+  const IncludesNumber = /[0-9]/.test(password);
+  const IsValidLength = password.length >= 8;
+  return IncludesUppercase && IncludesNumber && IsValidLength;
+};
 
-if(values.password ===""){
-errors.password = "password did not match";
-}
+export const EqualPasswords = (password, ConfirmPassword) => {
+  return password === ConfirmPassword;
+};
 
+export const EmptyInput = (username,password) => {
+  return username === '' || password === '';
 }
-export default validation;

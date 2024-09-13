@@ -2,10 +2,10 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import '../css/Landing.css'
-import background from './images/black2.png';
-import PageImg from './images/lion.jpg';
-import trainer from './images/4.jpg';
-import black from './images/Black.png';
+import background from '../images/black2.png';
+import PageImg from '../images/lion.jpg';
+import trainer from '../images/4.jpg';
+import black from '../images/black2.png';
 
 function LandingPage() {
   return (

@@ -42,7 +42,7 @@
         }).catch((error) => {
           console.error("Error fetching client secret:", error);
         });
-    }, []);
+    }, [totalAmount]);
 
 
 
@@ -56,6 +56,7 @@
         )}
       </>
     );
+    
   }
 
   export default Payment;
