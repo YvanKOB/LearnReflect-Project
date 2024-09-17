@@ -38,26 +38,35 @@ function RegistrationForm() {
 
 
   //Funksjon for innsending av login skjema til backend
-  const SubmitRegistrationRequest = e => {
+  const SubmitRegistrationRequest = async e => {
     e.preventDefault(); // Forhindrer standard/side-refresh ved skjema innsending
     
     const RegistrationData = {
      name: Values.Username,
      email: Values.EmailAddress,
      password: Values.Password
+     
     }
  
     if (ValidateForm()) {
-      axios
-        .post("http://localhost:8081/Register", RegistrationData)
+      axios.post("http://localhost:8081/Register", RegistrationData, {
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
         .then(response => {
           alert("Response success", response.data);
           navigate("/login");
+        }).catch(error => {
+          if(error.response){
+            console.error("Response Error:",error.response.data);
+          }else if (error.request){
+            console.error("Request Error:",error.request);
+          }else {
+            console.error("Error",error.message);
+          }
+          alert("An error occurred while processing your request.")
         })
-        .catch(error => {
-          console.error(error.data);
-          alert("PostRequest Error", error);
-        });
     } else return;
   };
 

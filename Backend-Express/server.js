@@ -4,17 +4,29 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const bcrypt = require('bcrypt');
+const { resolve } = require("path");
+const { error } = require('console');
 require("dotenv").config({ path: "./.env" });
 
 // Cors konfigurasjon
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
-}));
-  
+
+const allowedOrigin = ['http://localhost:3001','http://localhost:8081','http://192.168.10.116:3001'];
+ const corsOptions = {
+  origin: (origin,callback) => {
+    if(allowedOrigin.indexOf(origin) !== -1 || !origin){
+      callback(null,true);
+    } else {
+      callback(new Error('not allowed by cors'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  Credential: true, // cookies or credentials
+ }
+
+
+
+  app.use(cors(corsOptions));
   app.use(express.json());
- // app.options(cors());
 
 
 
@@ -26,19 +38,35 @@ app.use(cors({
     database: process.env.DB_DATABASE,
 });
 
+
+
+
+//post forespørsel til mysql for Contact
+app.post('supportRequest', async (req,res) => {
+  const {email, category, message} = req.body;
+  try{
+    const sql = "INSERT INTO support_requests (`id`email`category`message)";
+    const values = [id,email,category,message]
+    await db.promise().query(sql,[values]);
+  }catch{
+    console.log('Error',db.error)
+  }
+})
+
+
 db.connect((err) => {
   if (err) {  
-      console.error('Error connecting to MySQL database:', err);
+      error('Error connecting to MySQL database:', err);
       return;
   }
   console.log('Connected to MySQL database');
 }); 
 
 
+
 //post forespørsel til mysql for registrering
  app.post('/Register', async (req, res) => {
   const { name, email, password } = req.body;
-
   try {
     // sjekker om email allerede eksisterer
     const checkEmailSql = "SELECT * FROM login WHERE email = ?";
@@ -50,7 +78,7 @@ db.connect((err) => {
     }
 
     // krypterer passord
-    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+    const hashedPassword = await bcrypt.hash(password, 10); 
 
     // sender brukerdata inn til databasen
     const sql = "INSERT INTO login (`name`, `email`, `password`, `role`) VALUES (?)";
@@ -62,8 +90,12 @@ db.connect((err) => {
   } catch (err) {
     console.error('Database error:', err);
     return res.status(500).json({ message: 'Internal Server error.' });
-  }
+  } 
 });
+
+
+
+
 
 
 
@@ -95,17 +127,26 @@ app.post('/login', async (req, res) => {
 });
 
 
+
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-08-01",
 });
 
+
+
+
 const staticDir = resolve(__dirname, process.env.STATIC_DIR || '../Frontend/build');
 app.use(express.static(staticDir));
+
+
 
 app.get("/", (req, res) => {
   const indexPath = resolve(staticDir, "index.html");
   res.sendFile(indexPath);
 });
+
+
 
 app.get("/config", (req, res) => {
   console.log("Received request to /config");
@@ -138,13 +179,6 @@ app.get("/config", (req, res) => {
   }); 
 
 
-
-
-
-
-
-
- 
   const PORT = process.env.PORT || 8081;
   app.listen(PORT, () => {
       console.log("Listening on port", PORT);
