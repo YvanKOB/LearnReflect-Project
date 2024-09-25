@@ -28,10 +28,10 @@ function App() {
       <div className="container">
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Contact />} />
+             <Route path="/Contact" element={<Contact />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/Register" element={<RegistrationForm />} />
-            <Route path="/LandingPage" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/Timer" element={<Timer />} />
             <Route path="/CountDown" element={<CountDown />} />
             <Route path="/Homepage" element={<HomePage />} />

@@ -11,9 +11,7 @@ return(
          <Bcomponent/>
          <DropdownMenu /> {}
          <div>
-          <p className='about-text'> 
-
-          </p>
+          <p className='about-text'></p>
          </div>
 </div>
 );
